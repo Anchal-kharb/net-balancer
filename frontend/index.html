@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Net Balancer Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Info Section -->
+  <section class="info-section">
+    <div class="info-content">
+      <h1>🌐 Net Balancer </h1>
+      <p>
+        Visualize how your <strong>localhost</strong> manages user logins and distributes
+        traffic across multiple servers. Learn the basics of
+        <strong>load balancing</strong> and <strong>traffic management</strong> in real time.
+      </p>
+      <button class="get-started" onclick="goToInfo()">Get Started</button>
+
+    </div>
+  </section>
+
+  <!-- Main App -->
+  <div class="container">
+    <h2>Net Balancer — Live Simulation</h2>
+
+    <div class="controls">
+      <div>
+        <label>Strategy:</label>
+        <select id="strategy">
+          <option value="round_robin">Round Robin</option>
+          <option value="least_connections">Least Connections</option>
+          <option value="random">Random</option>
+        </select>
+      </div>
+      <button id="simulateBtn">Simulate 20 Logins</button>
+      <div class="summary">
+        <strong>Total active users:</strong> <span id="totalUsers">0</span>
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="left">
+        <div class="card">
+          <h3>Login (Simulate)</h3>
+          <input type="text" id="username" placeholder="Enter username..." />
+          <button id="loginBtn">Login</button>
+          <p class="assigned" id="assignedText"></p>
+        </div>
+      </div>
+
+      <div class="right">
+        <div id="servers" class="servers-grid">
+          <!-- Servers will be rendered here -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

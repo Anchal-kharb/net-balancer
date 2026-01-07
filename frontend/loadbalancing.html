@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Load Balancing</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .api-info {
+      max-width: 800px;
+      margin: 60px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    h1 { color: #059669; }
+    pre {
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+    }
+    a.back {
+      display: inline-block;
+      margin-top: 20px;
+      color: #047857;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="api-info">
+    <h1>ℹ️ What is Load Balancing?</h1>
+    <p>
+      Load balancing is a process that distributes network or application traffic
+      across multiple servers. This helps ensure that no single server becomes overwhelmed,
+      improves performance, and increases reliability.
+    </p>
+    <p>Below is a sample API fetch that explains load balancing in JSON form:</p>
+
+    <button id="fetchBtn">Fetch Load Balancing Info</button>
+    <pre id="output">Click the button above...</pre>
+
+    <a href="index.html" class="back">← Back to Simulator</a>
+  </div>
+
+  <script>
+    document.getElementById("fetchBtn").addEventListener("click", async () => {
+      try {
+        // Example: fake API response
+        const response = await fetch("https://api.publicapis.org/entries?title=load");
+        const data = await response.json();
+
+        // Show part of data nicely
+        document.getElementById("output").textContent = JSON.stringify(data.entries.slice(0, 3), null, 2);
+      } catch (err) {
+        document.getElementById("output").textContent = "Error fetching API info: " + err.message;
+      }
+    });
+  </script>
+</body>
+</html>
